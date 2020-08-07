@@ -55,7 +55,11 @@ class GenClass {
 					if (arg.type == null) {
 						arg.type = "Dynamic";
 					}
-					args += '${arg.name}: ${convert_type(types, arg.type)}';
+					if (arg.name == "default") {
+						args += 'lovrDefault: ${convert_type(types, arg.type)}';
+					} else {
+						args += '${arg.name}: ${convert_type(types, arg.type)}';
+					}
 				}
 				if (i < v.arguments.length-1) {
 					args += ", ";

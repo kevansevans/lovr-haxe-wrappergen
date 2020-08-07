@@ -13,7 +13,8 @@ class GenEnum {
 		hx += 'enum abstract ${e.name}(String) {\n';
 
 		for (v in e.values) {
-			hx += '\tvar ${mangle(v)} = "${v}";\n';
+			var str = StringTools.replace(v, "/", "");
+			hx += '\tvar ${mangle(str)} = "${v}";\n';
 		}
 
 		hx += '}\n';
